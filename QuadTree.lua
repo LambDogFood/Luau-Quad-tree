@@ -3,8 +3,42 @@
 local QuadTree = {}
 local QuadTree_mt = {}
 
-local point = require(script.Point)
-local rect = require(script.Rect)
+function point(x, y, data)
+	local self = {
+		x = x,
+		y = y,
+		data = data,
+	}
+	
+	return self
+end
+
+function rect(x, y, w, h)
+	local self = {
+		x = x,
+		y = y,
+		w = w,
+		h = h,
+	}
+	
+	self.contains = function(p)
+		return 
+			(p.x >= self.x - self.w and
+			p.x <= self.x + self.w and
+			p.y >= self.y - self.h and
+			p.y <= self.y + self.h)
+	end
+	
+	self.intersects = function(rect)
+		return not 
+			(rect.x - rect.w > self.x + self.w or
+			rect.x + rect.w < self.x - self.w or
+			rect.y - rect.h > self.y + self.h or
+			rect.y + rect.h < self.y - self.h)
+	end
+	
+	return self
+end
 
 function QuadTree_mt:subdivide()
 	local x = self.boundary.x
