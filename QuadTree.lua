@@ -1,4 +1,4 @@
---@ LambDogFood [20/03/23]
+-- Alex : LambDogFood [20/03/23]
 -- Based from "https://www.youtube.com/watch?v=OJxEcs0w_kE&t=17s"
 
 local QuadTree = {}
