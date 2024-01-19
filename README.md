@@ -17,7 +17,7 @@ local rectRange = QuadTree.Rect(150, 150, 50, 50)
 local foundPointsRect = quadTree:Find(rectRange)
 
 -- Output the found points.
-for _, point in ipairs(foundPointsRect) do
-    print("Found Point (Rect):", point.x, point.y, "with data:", point.data.data)
+for _, point in foundPointsRect do
+    print("Found Point:", point.x, point.y, "with data:", point.data)
 }
 ```
