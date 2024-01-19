@@ -30,7 +30,7 @@
 
 	-- Output the found points.
 	for _, point in ipairs(foundPoints) do
-	    print("Found Point:", point.x, point.y, "with data:", point.data.data)
+	    print("Found Point:", point.x, point.y, "with data:", point.data)
 	end
 
 --]]
