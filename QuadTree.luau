@@ -49,10 +49,10 @@ end
 export type Point<T> = {
 	x: number,
 	y: number,
-	data: T?,
+	data: T,
 }
 
-function QuadTree.Point<T>(x: number, y: number, data: T?): Point<T>
+function QuadTree.Point<T>(x: number, y: number, data: T): Point<T>
 	local point = {
 		x = x,
 		y = y,
@@ -72,7 +72,7 @@ export type QuadTree<T> = {
 
 	_subdivide: (self: QuadTree<T>) -> (),
 	Insert: (self: QuadTree<T>, point: Point<T>) -> boolean,
-	Find: (self: QuadTree<T>, range: QRect, found: {Point<T>}) -> {Point<T>},
+	Find: (self: QuadTree<T>, range: QRect, found: {Point<T>}?) -> {Point<T>},
 }
 
 function QuadTree.new<T>(boundary: QRect, capacity: number): QuadTree<T>
@@ -134,7 +134,7 @@ end
 
 function QuadTree.Find<T>(self: QuadTree<T>, range: QRect, found: {Point<T>}?): {Point<T>}
 
-	local result = found or {} :: {Point<T>}
+	local result: {Point<T>} = found or {}
 	
 	if self._boundary.Intersects(range) then
 		for _, point in self._points do			
@@ -153,6 +153,6 @@ end
 
 return QuadTree :: {
 	new: <T>(boundary: QRect, capacity: number) -> QuadTree<T>,
-	Point: <T>(x: number, y: number, data: T?) -> Point<T>,
+	Point: <T>(x: number, y: number, data: T) -> Point<T>,
 	Rect: (x: number, y: number, w: number, h: number) -> QRect
 }
