@@ -43,7 +43,7 @@ end
 ---
 ## API Reference
 
-### Constructor
+#### Constructor
 
 ```lua
 QuadTree.new<T>(boundary: QRect, capacity: number): QuadTree<T>
@@ -51,7 +51,7 @@ QuadTree.new<T>(boundary: QRect, capacity: number): QuadTree<T>
 Creates a new QuadTree instance with a defined rectangular area and point capacity.
 
 ---
-### Static Utilities
+#### Static Utilities
 
 ```lua
 QuadTree.Rect(x: number, y: number, w: number, h: number): QRect
@@ -61,7 +61,7 @@ QuadTree.Point<T>(x: number, y: number, data: T?): Point<T>
 - Point creates a typed point object
 
 ---
-### Instance Methods
+#### Instance Methods
 
 ```lua
 QuadTree:Insert(point: Point<T>): boolean
@@ -71,7 +71,7 @@ QuadTree:Find(range: QRect, found?: { Point<T> }): { Point<T> }
 - Find: Retrieves all points within a given rectangular range
 
 ---
-### QRect Methods
+#### QRect Methods
 
 ```lua
 QRect:Contains(Point<any>): boolean
@@ -84,12 +84,13 @@ QRect:Intersects(QRect): boolean
 
 ---
 ## Author
-Alex (LordDogFood)
+
+Alex (LordDogFood)  
 GitHub: [@LambDogFood](https://github.com/LambDogFood)
 
 ---
 ## License
-MIT License
+MIT License  
 Free to use, modify and distribute.
 
 
